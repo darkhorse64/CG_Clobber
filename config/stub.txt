@@ -1,0 +1,18 @@
+read boardSize:int
+read color:word(1)
+
+gameloop
+loop boardSize read line:word(8)
+read lastAction:word(4)
+read actionsCount:int
+write random
+
+INPUT
+boardSize: height and width of the board
+color: current color of your pieces ("w" or "b")
+line: horizontal row
+lastAction: last action made by the opponent ("null" if it's the first turn)
+actionsCount: number of legal actions
+
+OUTPUT
+e.g. e2e3 (move piece at e2 to e3)

@@ -1,0 +1,128 @@
+<div id="statement_back" class="statement_back" style="display:none"></div>
+  <div class="statement-body">
+    <!-- GOAL -->
+    <div class="statement-section statement-goal">
+      <h1>
+        <span class="icon icon-goal">&nbsp;</span>
+        <span>The Game</span>
+      </h1>
+      <div class="statement-goal-content">
+        <p>This is a port of the board game <a href="https://en.wikipedia.org/wiki/Clobber">Clobber</a>.</p>
+        <p>Click <a href="https://github.com/darkhorse64/CG_Clobber">here</a> for the referee.</p>
+        <p>Special thanks to <a href="https://www.codingame.com/profile/dfb886f869fc14dc31fc9191a1b87a608740451">struct</a> for providing me with his referee code as a basis for this work.</p>
+      </div>
+    </div>
+    <!-- RULES -->
+    <div class="statement-section statement-rules">
+      <h1>
+          <span class="icon icon-rules">&nbsp;</span>
+          <span>Rules</span>
+      </h1>
+      <div class="statement-rules-content">
+          <p>The game is played on a 8x8 board. In the initial position, all squares are occupied by a stone, with white stones on the white squares and black stones on the black squares.</p>
+          <strong>Legal action: </strong>
+          <ul>
+            <li>A player moves by picking up one of their stones and "clobbering" an opponent's stone on an adjacent square (horizontally or vertically). The "clobbered" stone is removed from the board and replaced by the stone that was moved.</li>
+          </ul>
+          <p>The game ends when one player, on their turn, is unable to move, and then that player loses.</p> 
+          <strong>Resolution of a turn: </strong>
+          <ul>
+            <li>A bot must output the coordinates of the piece he wants to move followed by its destination coordinates. Coordinates are expressed in chess notation</li>
+          </ul>
+          <strong>Wrong output: </strong><br>
+          <ul>
+              <li>If the starting or destination coordinates are outside of the board,</li>
+              <li>If the starting square is occupied by an oppponent stone,</li>
+              <li>If the destination square is empty or occupied by an own piece,</li>
+          </ul>
+          <p>the game will end and the other player will win.</p>
+    </div>
+  </div>
+
+  <!-- EXPERT RULES -->
+  <div class="statement-section statement-expertrules">
+    <h1>
+      <span class="icon icon-expertrules">&nbsp;</span>
+      <span>Expert Rules</span>
+    </h1>
+    <div class="statement-expert-rules-content">
+      Draws are impossible.
+    </div>
+  </div>
+  
+  <!-- Victory conditions -->
+  <div class="statement-victory-conditions">
+      <div class="icon victory"></div>
+      <div class="blk">
+          <div class="title">Victory Conditions</div>
+          <div class="text">
+              <ul style="padding-bottom: 0;">
+                  <li>Be the last player to move.</li>
+              </ul>
+          </div>
+      </div>
+  </div>
+
+  <!-- Lose conditions -->
+  <div class="statement-lose-conditions">
+      <div class="icon lose"></div>
+      <div class="blk">
+          <div class="title">Loss Conditions</div>
+          <div class="text">
+              <ul style="padding-bottom: 0;">
+                  <li>Have no legal moves.</li>
+                  <li>You do not respond in time or output an unrecognized command.</li>
+              </ul>
+          </div>
+      </div>
+  </div>
+
+  <!-- PROTOCOL -->
+  <div class="statement-section statement-protocol">
+      <h1>
+      <span class="icon icon-protocol">&nbsp;</span>
+      <span>Game Input</span>
+  </h1>
+
+    <!-- Protocol block -->
+    <div class="blk">
+      <div class="title">Initial input</div>
+      <div class="text">
+          <span class="statement-lineno">First line</span>: <var>boardSize</var>: the number of rows and columns on the board.
+          <br>
+          <span class="statement-lineno">Next <var>color</var></span>: the color of your pieces ("w": white, "b":black).
+      </div>
+    </div>
+
+    <div class="blk">
+      <div class="title">Input for one game turn</div>
+      <div class="text">
+        <span class="statement-lineno">Next <var>boardSize</var> <var>lines</var></span>: a string of characters representing one horizontal row of the grid, top to bottom. ('.': empty, 'w': white, 'b': black).
+        <br>
+        <span class="statement-lineno">Next <var>lastAction</var></span>: the last action made by the opponent ("null" if it's the first turn).
+        <br>
+         <span class="statement-lineno">Next <var>actionsCount</var></span>: the number of legal actions for this turn.
+        <br>
+      </div>
+    </div>
+
+    <!-- Protocol block -->
+    <div class="blk">
+      <div class="title">Output</div>
+      <div class="text">
+         <span class="statement-lineno">A single line</span> containing the coordinates where you want to move from, to. e.g. "e2e3".<br>
+        You can also print messages by doing the following. e.g. "e2e3 msg message".
+        <br>
+      </div>
+    </div>
+
+    <!-- Protocol block -->
+    <div class="blk">
+      <div class="title">Constraints</div>
+        Response time first turn is ≤
+        <const>1000</const> ms.
+        <br>Response time per turn is ≤
+        <const>100</const> ms.
+      </div>
+  </div>
+</div>
