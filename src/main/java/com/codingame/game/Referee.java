@@ -87,6 +87,7 @@ public class Referee extends AbstractReferee {
                 for (Action action : actions) {
                     String s = action.toString();
                     if (output.startsWith(s)) {
+                        lastAction = s;
                         viewer.applyAction(action.unit, action.target);
                         board.applyAction(action.unit, action.target);
                         found = true;
