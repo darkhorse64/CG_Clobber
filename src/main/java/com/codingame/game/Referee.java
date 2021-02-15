@@ -28,6 +28,7 @@ public class Referee extends AbstractReferee {
     String lastAction = "null";
     Random rand;
     int boardSize = 8;
+    int maxCommentLength = 16;
 
     @Override
     public void init() {
@@ -54,20 +55,26 @@ public class Referee extends AbstractReferee {
             sendInputs(turn);
             player.execute();
 
-            String[] outputs = player.getOutputs().get(0).split("MSG|msg");
-            outputs[0] = outputs[0].replaceAll("\\s", "").toLowerCase();
+            String output = player.getOutputs().get(0);
+            String comment = null;
+            // Split comment from output.
+            int spaceIndex = output.indexOf(' ');
+            if (spaceIndex != -1) {
+                comment = output.substring(spaceIndex + 1);
+                if (comment.length() > maxCommentLength)
+                    comment = comment.substring(0, maxCommentLength);
+                output = output.substring(0, spaceIndex);
+            }
 
-            if (outputs.length > 1) {
-                outputs[1] = outputs[1].replaceFirst("MSG\\s","");
-                outputs[1] = outputs[1].substring(0, Math.min(outputs[1].length(), 16));
-                viewer.playerUIS[player.getIndex()].msg.setText(outputs[1]);
+            if (comment != null) {
+                 viewer.playerUIS[player.getIndex()].msg.setText(comment);
             } else {
                 viewer.playerUIS[player.getIndex()].msg.setText("");
             }
 
             boolean found = false;
 
-            if(outputs[0].equals("random")) {
+            if(output.equals("random")) {
                 found = true;
                 int a = rand.nextInt(actions.size());
 
@@ -79,7 +86,7 @@ public class Referee extends AbstractReferee {
             } else {
                 for (Action action : actions) {
                     String s = action.toString();
-                    if (outputs[0].startsWith(s)) {
+                    if (output.startsWith(s)) {
                         viewer.applyAction(action.unit, action.target);
                         board.applyAction(action.unit, action.target);
                         found = true;

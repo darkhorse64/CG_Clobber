@@ -11,7 +11,7 @@ public class Agent1 {
 
             for (int y = 0; y < boardSize; ++y) {
                 String line = in.next();
-                System.err.println(line);
+//                System.err.println(line);
             }
 
             String last_action = in.next();

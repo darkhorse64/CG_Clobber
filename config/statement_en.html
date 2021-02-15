@@ -90,18 +90,18 @@
       <div class="text">
           <span class="statement-lineno">First line</span>: <var>boardSize</var>: the number of rows and columns on the board.
           <br>
-          <span class="statement-lineno">Next line:<var>color</var></span>: the color of your pieces ("w": white, "b":black).
+          <span class="statement-lineno">Next line:<var>color</var></span>: the color of your pieces (<const>w</const>: white, <const>b</const>: black).
       </div>
     </div>
 
     <div class="blk">
       <div class="title">Input for one game turn</div>
       <div class="text">
-        <span class="statement-lineno">Next <var>boardSize</var> lines</span>: <var>line</var>: a string of characters representing one horizontal row of the grid, top to bottom. ('.': empty, 'w': white, 'b': black).
+        <span class="statement-lineno">Next <var>boardSize</var> lines</span>: <var>line</var>: a string of characters representing one horizontal row of the grid, top to bottom. (<const>.</const>: empty, <const>w</const>: white, <const>b</const>: black).
         <br>
-        <span class="statement-lineno">Next line:<var>lastAction</var></span>: the last action made by the opponent ("null" if it's the first turn).
+        <span class="statement-lineno">Next line: <var>lastAction</var></span>: the last action made by the opponent ("null" if it's the first turn).
         <br>
-         <span class="statement-lineno">Next line:<var>actionsCount</var></span>: the number of legal actions for this turn.
+         <span class="statement-lineno">Next line: <var>actionsCount</var></span>: the number of legal actions for this turn.
         <br>
       </div>
     </div>
@@ -110,8 +110,11 @@
     <div class="blk">
       <div class="title">Output</div>
       <div class="text">
-         <span class="statement-lineno">A single line</span> containing the coordinates where you want to move from, to. e.g. "e2e3".<br>
-        You can also print messages by doing the following. e.g. "e2e3 msg message".
+         <span class="statement-lineno">A single line</span> containing the coordinates where you want to move from, to, e.g. "e2e3".<br>
+          <ul>
+              <li>You can display a (short) comment in the viewer by adding a space after the move and writing its content, e.g. "e2e3 message".</li>
+              <li>You can play a random move by outputting <const>random</const> instead of a move. This is admittedly only useful for stub code generation.</li>
+          </ul>
         <br>
       </div>
     </div>

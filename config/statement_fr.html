@@ -90,14 +90,14 @@
       <div class="text">
           <span class="statement-lineno">Première ligne</span>: <var>boardSize</var>: le nombre de lignes et de colonnes du plateau.
           <br>
-          <span class="statement-lineno">Ligne suivante: <var>color</var>: la couleur de vos pions ("w": blancs, "b":noirs).
+          <span class="statement-lineno">Ligne suivante: <var>color</var></span>: la couleur de vos pions (<const>w</const>: blancs, <const>b</const>:noirs).
       </div>
     </div>
 
     <div class="blk">
       <div class="title">Entrées pour chaque tour de jeu</div>
       <div class="text">
-        <span class="statement-lineno"><var>boardSize</var> lignes</span>: <var>line</var>:une chaîne de caractères représentant une ligne du plateau, de haut en bas. ('.': vide, 'w': pion blanc, 'b': pion noir).
+        <span class="statement-lineno"><var>boardSize</var> lignes</span>: <var>line</var>: une chaîne de caractères représentant une ligne du plateau, de haut en bas. (<const>.</const>: vide, <const>w</const>: pion blanc, <const>b</const>: pion noir).
         <br>
         <span class="statement-lineno">Ligne suivante</span>: <var>lastAction</var>: le dernier coup joué par l'adversaire ("null" si c'est le premier tour).
         <br>
@@ -111,7 +111,10 @@
       <div class="title">Sorties</div>
       <div class="text">
          <span class="statement-lineno">Une seule ligne</span> contenant les coordonnées de départ et d'arrivée du pion joué, par exemple "e2e3".<br>
-        Vous pouvez aussi ajouter un message en ajoutant "msg" après le coup suivi du texte de votre message, par exemple "e2e3 msg message".
+          <ul>
+              <li>Vous pouvez afficher un (court) message dans le cartouche de votre joueur en ajoutant un espace après le coup suivi du texte de votre message, par exemple "e2e3 message".</li>
+              <li>Vous pouvez jouer un coup aléatoirement en écrivant <const>random</const> à la place de votre coup. Ca n'a vraiment d'utilité que pour créer facilement un robot fonctionnel à l'aide du générateur de code.</li>
+          </ul>
         <br>
       </div>
     </div>
