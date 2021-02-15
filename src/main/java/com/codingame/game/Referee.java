@@ -31,7 +31,7 @@ public class Referee extends AbstractReferee {
 
     @Override
     public void init() {
-    //    boardSize = gameManager.getLeagueLevel() == 1 ? 8 : 10;
+        boardSize = gameManager.getLeagueLevel() == 1 ? 8 : 10;
         rand = new Random(gameManager.getSeed());
         board = new Board(boardSize, gameManager.getSeed());
         viewer = new Viewer(graphics, board, gameManager, toggleModule);

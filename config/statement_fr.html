@@ -1,0 +1,128 @@
+<div id="statement_back" class="statement_back" style="display:none"></div>
+  <div class="statement-body">
+    <!-- GOAL -->
+    <div class="statement-section statement-goal">
+      <h1>
+        <span class="icon icon-goal">&nbsp;</span>
+        <span>Présentation du jeu</span>
+      </h1>
+      <div class="statement-goal-content">
+        <p>Ce jeu est une implémentation du jeu de plateau <a href="https://en.wikipedia.org/wiki/Clobber">Clobber</a>.</p>
+        <p>Le code source est accessible <a href="https://github.com/darkhorse64/CG_Clobber">ici</a>.</p>
+        <p>Je tiens à remercier <a href="https://www.codingame.com/profile/dfb886f869fc14dc31fc9191a1b87a608740451">struct</a> qui m'a donné l'autorisation de réutiliser son code pour ce projet.</p>
+      </div>
+    </div>
+    <!-- RULES -->
+    <div class="statement-section statement-rules">
+      <h1>
+          <span class="icon icon-rules">&nbsp;</span>
+          <span>Règles</span>
+      </h1>
+      <div class="statement-rules-content">
+          <p>Le jeu se déroule sur un échiquier de 8x8 cases. Dans la position initiale, toutes les cases sont occupées par un pion, les pions blancs sur les cases blanches, les pions noirs sur les cases noires.</p>
+          <strong>Comment jouer: </strong>
+          <ul>
+            <li>Lors de son tour de jeu, un joueur sélectionne un de ses pions et "démolit" un pion de son adversaire situé sur une case adjacente (horizontalement ou verticalement). Le pion qui a été "démoli" est retiré du plateau et est remplacé par le pion sélectionné.</li>
+          </ul>
+          <p>La partie se termine quand un joueur, lors de son tour de jeu, n'a plus de coups disponibles (aucun de ses pions n'est voisin d'un pion adverse). Le joueur a alors perdu la partie.</p> 
+          <strong>Fin d'un tour de jeu: </strong>
+          <ul>
+            <li>Le robot doit communiquer les coordonnées du pion qu'il a choisi suivi des coordonnées de sa destination. Les coordonnées sont exprimées en notation échiquéenne, par exemple e2e3.</li>
+          </ul>
+          <strong>En cas de coup erroné d'un joueur: </strong><br>
+          <ul>
+              <li>Si les positions de départ ou d'arrivée sont en dehors du plateau,</li>
+              <li>Si la case de départ est occupée par un pion adverse,</li>
+              <li>Si la case d'arrivée est vide ou occupée par un des pions sur,</li>
+          </ul>
+          <p>la partie se termine et le joueur perd.</p>
+    </div>
+  </div>
+
+  <!-- EXPERT RULES -->
+  <div class="statement-section statement-expertrules">
+    <h1>
+      <span class="icon icon-expertrules">&nbsp;</span>
+      <span>Règles pour les experts</span>
+    </h1>
+    <div class="statement-expert-rules-content">
+      Les parties nulles sont impossibles.
+    </div>
+  </div>
+  
+  <!-- Victory conditions -->
+  <div class="statement-victory-conditions">
+      <div class="icon victory"></div>
+      <div class="blk">
+          <div class="title">Conditions de victoire</div>
+          <div class="text">
+              <ul style="padding-bottom: 0;">
+                  <li>Etre le dernier joueur à pouvoir déplacer un pion.</li>
+              </ul>
+          </div>
+      </div>
+  </div>
+
+  <!-- Lose conditions -->
+  <div class="statement-lose-conditions">
+      <div class="icon lose"></div>
+      <div class="blk">
+          <div class="title">Conditions de défaite</div>
+          <div class="text">
+              <ul style="padding-bottom: 0;">
+                  <li>Ne plus avoir de coups à sa disposition.</li>
+                  <li>Ne pas répondre dans le temps imparti ou envoyer une sortie erronée.</li>
+              </ul>
+          </div>
+      </div>
+  </div>
+
+  <!-- PROTOCOL -->
+  <div class="statement-section statement-protocol">
+      <h1>
+      <span class="icon icon-protocol">&nbsp;</span>
+      <span>Entrées/sorties du jeu</span>
+  </h1>
+
+    <!-- Protocol block -->
+    <div class="blk">
+      <div class="title">Entrées initiales</div>
+      <div class="text">
+          <span class="statement-lineno">Première ligne</span>: <var>boardSize</var>: le nombre de lignes et de colonnes du plateau.
+          <br>
+          <span class="statement-lineno">Ligne suivante: <var>color</var>: la couleur de vos pions ("w": blancs, "b":noirs).
+      </div>
+    </div>
+
+    <div class="blk">
+      <div class="title">Entrées pour chaque tour de jeu</div>
+      <div class="text">
+        <span class="statement-lineno"><var>boardSize</var> lignes</span>: <var>line</var>:une chaîne de caractères représentant une ligne du plateau, de haut en bas. ('.': vide, 'w': pion blanc, 'b': pion noir).
+        <br>
+        <span class="statement-lineno">Ligne suivante</span>: <var>lastAction</var>: le dernier coup joué par l'adversaire ("null" si c'est le premier tour).
+        <br>
+         <span class="statement-lineno">Ligne suivante</span>: <var>actionsCount</var>: le nombre de coups légaux pour ce tour.
+        <br>
+      </div>
+    </div>
+
+    <!-- Protocol block -->
+    <div class="blk">
+      <div class="title">Sorties</div>
+      <div class="text">
+         <span class="statement-lineno">Une seule ligne</span> contenant les coordonnées de départ et d'arrivée du pion joué, par exemple "e2e3".<br>
+        Vous pouvez aussi ajouter un message en ajoutant "msg" après le coup suivi du texte de votre message, par exemple "e2e3 msg message".
+        <br>
+      </div>
+    </div>
+
+    <!-- Protocol block -->
+    <div class="blk">
+      <div class="title">Contraintes</div>
+        Le temps de réponse au premier tour est ≤
+        <const>1000</const> ms.
+        <br>Le temps de réponse pour les tours suivants est ≤
+        <const>100</const> ms.
+      </div>
+  </div>
+</div>

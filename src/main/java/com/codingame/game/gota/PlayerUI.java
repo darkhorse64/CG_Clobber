@@ -2,12 +2,13 @@ package com.codingame.game.gota;
 
 import com.codingame.game.Player;
 import com.codingame.gameengine.module.entities.Rectangle;
+import com.codingame.gameengine.module.entities.RoundedRectangle;
 import com.codingame.gameengine.module.entities.Sprite;
 import com.codingame.gameengine.module.entities.Text;
 
 public class PlayerUI {
     Player player;
-    Rectangle rectangle;
+    RoundedRectangle rectangle;
     Sprite avatar;
     Sprite piece;
     public Text action;
@@ -18,7 +19,7 @@ public class PlayerUI {
         int START_X = player.getIndex() == 1 ? viewer.graphics.getWorld().getWidth() - 350 : 50;
         this.player = player;
 
-        rectangle = viewer.graphics.createRectangle().setHeight(600).setWidth(300).setX(START_X).setY(START_Y).setFillColor(0xFFFFFF).setAlpha(0.15);
+        rectangle = viewer.graphics.createRoundedRectangle().setHeight(600).setWidth(300).setX(START_X).setY(START_Y).setFillColor(0xFFFFFF).setAlpha(0.15).setLineWidth(4);
 
         viewer.graphics.createText(player.getNicknameToken()).setFontSize(42).setX(START_X + 150).setAnchorX(0.5).setY(START_Y + 10).setFillColor(0xffffff);
         avatar = viewer.graphics.createSprite().setImage(player.getAvatarToken()).setX(START_X + 150).setY(START_Y + 120).setAnchorX(0.5).setBaseHeight(100).setBaseWidth(100);

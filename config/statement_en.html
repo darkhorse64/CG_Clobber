@@ -20,14 +20,14 @@
       </h1>
       <div class="statement-rules-content">
           <p>The game is played on a 8x8 board. In the initial position, all squares are occupied by a stone, with white stones on the white squares and black stones on the black squares.</p>
-          <strong>Legal action: </strong>
+          <strong>How to play: </strong>
           <ul>
             <li>A player moves by picking up one of their stones and "clobbering" an opponent's stone on an adjacent square (horizontally or vertically). The "clobbered" stone is removed from the board and replaced by the stone that was moved.</li>
           </ul>
           <p>The game ends when one player, on their turn, is unable to move, and then that player loses.</p> 
-          <strong>Resolution of a turn: </strong>
+          <strong>Ending a turn: </strong>
           <ul>
-            <li>A bot must output the coordinates of the piece he wants to move followed by its destination coordinates. Coordinates are expressed in chess notation</li>
+            <li>A bot must output the coordinates of the piece he wants to move followed by its destination coordinates. Coordinates are expressed in chess notation e.g. "e2e3"</li>
           </ul>
           <strong>Wrong output: </strong><br>
           <ul>
@@ -81,7 +81,7 @@
   <div class="statement-section statement-protocol">
       <h1>
       <span class="icon icon-protocol">&nbsp;</span>
-      <span>Game Input</span>
+      <span>Game Input/Output</span>
   </h1>
 
     <!-- Protocol block -->
@@ -90,18 +90,18 @@
       <div class="text">
           <span class="statement-lineno">First line</span>: <var>boardSize</var>: the number of rows and columns on the board.
           <br>
-          <span class="statement-lineno">Next <var>color</var></span>: the color of your pieces ("w": white, "b":black).
+          <span class="statement-lineno">Next line:<var>color</var></span>: the color of your pieces ("w": white, "b":black).
       </div>
     </div>
 
     <div class="blk">
       <div class="title">Input for one game turn</div>
       <div class="text">
-        <span class="statement-lineno">Next <var>boardSize</var> <var>lines</var></span>: a string of characters representing one horizontal row of the grid, top to bottom. ('.': empty, 'w': white, 'b': black).
+        <span class="statement-lineno">Next <var>boardSize</var> lines</span>: <var>line</var>: a string of characters representing one horizontal row of the grid, top to bottom. ('.': empty, 'w': white, 'b': black).
         <br>
-        <span class="statement-lineno">Next <var>lastAction</var></span>: the last action made by the opponent ("null" if it's the first turn).
+        <span class="statement-lineno">Next line:<var>lastAction</var></span>: the last action made by the opponent ("null" if it's the first turn).
         <br>
-         <span class="statement-lineno">Next <var>actionsCount</var></span>: the number of legal actions for this turn.
+         <span class="statement-lineno">Next line:<var>actionsCount</var></span>: the number of legal actions for this turn.
         <br>
       </div>
     </div>

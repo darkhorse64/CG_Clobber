@@ -25,10 +25,10 @@ public class Viewer {
     int RECTANGLE_SIZE;
     int CIRCLE_RADIUS;
     int GAP;
-    final int[] BOARDCOLORS = new int[]{0xF0D9B5, 0x946f51};
-    final int BACKGROUNDCOLOR = 0x262421;
+    final int[] BOARDCOLORS = new int[]{0xFFCE9E, 0xD18B47};
+    final int BACKGROUNDCOLOR = 0x7F7F7F;
     final int[] HIGHLIGHTCOLOR = new int[]{0x7e9ec2, 0x7e9ec2, 0xFF0000};
-    final double MOVE_TIME = 350;
+    final double MOVE_TIME = 700;
 
     public Viewer(GraphicEntityModule graphics, Board board, MultiplayerGameManager<Player> gameManager, ToggleModule toggleModule) {
         this.graphics = graphics;
