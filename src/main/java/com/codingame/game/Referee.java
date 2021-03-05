@@ -32,7 +32,7 @@ public class Referee extends AbstractReferee {
 
     @Override
     public void init() {
-        boardSize = gameManager.getLeagueLevel() == 1 ? 8 : 10;
+    //    boardSize = gameManager.getLeagueLevel() == 1 ? 8 : 10;
         rand = new Random(gameManager.getSeed());
         board = new Board(boardSize, gameManager.getSeed());
         viewer = new Viewer(graphics, board, gameManager, toggleModule);
@@ -139,7 +139,7 @@ public class Referee extends AbstractReferee {
         for(int y = 0; y < board.getHEIGHT(); ++y) {
             String s = "";
             for (int x = 0; x < board.getWIDTH(); ++x) {
-                Cell cell = board.cells[y][x];
+                Cell cell = board.cells[board.getHEIGHT() - y - 1][x];
                 if (cell.unit != null) {
                     s += cell.unit.owner == 0 ? 'w' : 'b';
                 } else {
